@@ -5,8 +5,8 @@
  */
 package telas;
 
-import controle.connectionfactory;
 import java.awt.Color;
+
 
 /**
  *
@@ -14,11 +14,8 @@ import java.awt.Color;
  */
 public class cadastro extends javax.swing.JFrame {
 
-    connectionfactory conecta = new connectionfactory();
-    
     public cadastro() {
         initComponents();
-        conecta.conexao();
         painel_mascara.setBackground(new Color(0,0,0,200));
     }
 
@@ -41,7 +38,6 @@ public class cadastro extends javax.swing.JFrame {
         bt_entrar = new javax.swing.JButton();
         lb_contarapida = new javax.swing.JLabel();
         lb_criarconta = new javax.swing.JLabel();
-        bt_cadastro = new javax.swing.JButton();
         painel_mascara = new javax.swing.JPanel();
         lb_contorno = new javax.swing.JLabel();
         lb_greenpeace = new javax.swing.JLabel();
@@ -93,6 +89,11 @@ public class cadastro extends javax.swing.JFrame {
         bt_entrar.setBackground(new java.awt.Color(115, 200, 44));
         bt_entrar.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         bt_entrar.setText("Entrar");
+        bt_entrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_entrarActionPerformed(evt);
+            }
+        });
         jPanel1.add(bt_entrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, 290, 40));
 
         lb_contarapida.setForeground(new java.awt.Color(51, 52, 54));
@@ -100,19 +101,13 @@ public class cadastro extends javax.swing.JFrame {
         jPanel1.add(lb_contarapida, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, -1, -1));
 
         lb_criarconta.setForeground(new java.awt.Color(51, 52, 54));
-        lb_criarconta.setText("Se ainda não possui uma conta e desaja fazer um cadastro clique");
-        jPanel1.add(lb_criarconta, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, -1, 20));
-
-        bt_cadastro.setBackground(new java.awt.Color(32, 32, 36));
-        bt_cadastro.setForeground(new java.awt.Color(51, 52, 54));
-        bt_cadastro.setText("aqui");
-        bt_cadastro.setBorder(null);
-        bt_cadastro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bt_cadastroActionPerformed(evt);
+        lb_criarconta.setText("Se ainda não possui uma conta e desaja fazer um cadastro clique aqui.");
+        lb_criarconta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_criarcontaMouseClicked(evt);
             }
         });
-        jPanel1.add(bt_cadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 400, 60, 20));
+        jPanel1.add(lb_criarconta, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, -1, 20));
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(380, 0, 450, 500);
@@ -147,23 +142,27 @@ public class cadastro extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_nameActionPerformed
 
-    private void bt_cadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_cadastroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bt_cadastroActionPerformed
-
     private void jPasswordField1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPasswordField1FocusGained
-        // TODO add your handling code here:
+
         sep_senha.setBackground(new Color(115,200,44));
         lb_senha.setForeground(new Color(115,200,44));
         lb_name.setForeground(new Color(51,52,54));
     }//GEN-LAST:event_jPasswordField1FocusGained
 
     private void txt_nameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_nameFocusGained
-        // TODO add your handling code here:
+
         sep_senha.setBackground(new Color(115,200,44));
         lb_name.setForeground(new Color(115,200,44));
         lb_senha.setForeground(new Color(51,52,54));
     }//GEN-LAST:event_txt_nameFocusGained
+
+    private void lb_criarcontaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_criarcontaMouseClicked
+        new login().setVisible(true);
+    }//GEN-LAST:event_lb_criarcontaMouseClicked
+
+    private void bt_entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_entrarActionPerformed
+
+    }//GEN-LAST:event_bt_entrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -193,15 +192,12 @@ public class cadastro extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new cadastro().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new cadastro().setVisible(true);
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bt_cadastro;
     private javax.swing.JButton bt_entrar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField jPasswordField1;

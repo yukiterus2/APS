@@ -5,15 +5,15 @@
  */
 package telas;
 
+
+
 /**
  *
  * @author TheLoli
  */
 public class login extends javax.swing.JFrame {
-
-    /**
-     * Creates new form login
-     */
+    
+  
     public login() {
         initComponents();
     }
@@ -40,14 +40,14 @@ public class login extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txt_email = new javax.swing.JTextField();
         sep_email = new javax.swing.JSeparator();
-        br_cirarconta = new javax.swing.JButton();
+        br_criarconta = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(32, 32, 36));
@@ -78,7 +78,7 @@ public class login extends javax.swing.JFrame {
 
         lb_senha.setForeground(new java.awt.Color(115, 200, 44));
         lb_senha.setText("Senha");
-        jPanel1.add(lb_senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, 30, 10));
+        jPanel1.add(lb_senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, 40, 10));
 
         txt_senha.setBackground(new java.awt.Color(51, 52, 54));
         txt_senha.setForeground(new java.awt.Color(255, 255, 255));
@@ -98,10 +98,15 @@ public class login extends javax.swing.JFrame {
         jPanel1.add(txt_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, 260, 30));
         jPanel1.add(sep_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, 260, 10));
 
-        br_cirarconta.setBackground(new java.awt.Color(115, 200, 44));
-        br_cirarconta.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
-        br_cirarconta.setText("Criar conta");
-        jPanel1.add(br_cirarconta, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 390, 260, 50));
+        br_criarconta.setBackground(new java.awt.Color(115, 200, 44));
+        br_criarconta.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
+        br_criarconta.setText("Criar conta");
+        br_criarconta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                br_criarcontaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(br_criarconta, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 390, 260, 50));
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(380, 0, 450, 499);
@@ -130,7 +135,12 @@ public class login extends javax.swing.JFrame {
         jLabel1.setBounds(0, 0, 830, 500);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void br_criarcontaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_br_criarcontaActionPerformed
+            
+    }//GEN-LAST:event_br_criarcontaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -160,15 +170,13 @@ public class login extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new login().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new login().setVisible(true);
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton br_cirarconta;
+    private javax.swing.JButton br_criarconta;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
