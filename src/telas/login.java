@@ -5,6 +5,10 @@
  */
 package telas;
 
+import Controllers.ControleUsuario;
+import Models.Usuario;
+import javax.swing.JOptionPane;
+
 
 
 /**
@@ -16,7 +20,10 @@ public class login extends javax.swing.JFrame {
   
     public login() {
         initComponents();
+                
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -31,9 +38,6 @@ public class login extends javax.swing.JFrame {
         lb_nome = new javax.swing.JLabel();
         txt_nome = new javax.swing.JTextField();
         sep_nome = new javax.swing.JSeparator();
-        lb_usuario = new javax.swing.JLabel();
-        txt_usuario = new javax.swing.JTextField();
-        sep_usuario = new javax.swing.JSeparator();
         lb_senha = new javax.swing.JLabel();
         txt_senha = new javax.swing.JPasswordField();
         sep_senha = new javax.swing.JSeparator();
@@ -64,17 +68,6 @@ public class login extends javax.swing.JFrame {
         txt_nome.setCaretColor(new java.awt.Color(255, 255, 255));
         jPanel1.add(txt_nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, 260, 30));
         jPanel1.add(sep_nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 260, 10));
-
-        lb_usuario.setForeground(new java.awt.Color(115, 200, 44));
-        lb_usuario.setText("Usuário");
-        jPanel1.add(lb_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, -1, 10));
-
-        txt_usuario.setBackground(new java.awt.Color(51, 52, 54));
-        txt_usuario.setForeground(new java.awt.Color(255, 255, 255));
-        txt_usuario.setBorder(null);
-        txt_usuario.setCaretColor(new java.awt.Color(255, 255, 255));
-        jPanel1.add(txt_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 260, 30));
-        jPanel1.add(sep_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 260, 10));
 
         lb_senha.setForeground(new java.awt.Color(115, 200, 44));
         lb_senha.setText("Senha");
@@ -139,7 +132,27 @@ public class login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void br_criarcontaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_br_criarcontaActionPerformed
-            
+        String nome = this.txt_nome.getText();
+        String email = this.txt_email.getText();
+        String senha = new String(txt_senha.getPassword());
+        
+        Usuario u= new Usuario();
+        u.setId(0);
+        u.setNome(nome);
+        u.setEmail(email);
+        u.setSenha(senha);
+        
+        ControleUsuario uc = new ControleUsuario();
+        
+        int res = uc.cadastro(u);
+        
+        if (res > 0) {
+            JOptionPane.showMessageDialog(null, "Salvo");
+            new cadastro().setVisible(true);
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "Não deu não");
+        }
     }//GEN-LAST:event_br_criarcontaActionPerformed
 
     /**
@@ -186,14 +199,11 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lb_nome;
     private javax.swing.JLabel lb_senha;
-    private javax.swing.JLabel lb_usuario;
     private javax.swing.JSeparator sep_email;
     private javax.swing.JSeparator sep_nome;
     private javax.swing.JSeparator sep_senha;
-    private javax.swing.JSeparator sep_usuario;
     private javax.swing.JTextField txt_email;
     private javax.swing.JTextField txt_nome;
     private javax.swing.JPasswordField txt_senha;
-    private javax.swing.JTextField txt_usuario;
     // End of variables declaration//GEN-END:variables
 }
